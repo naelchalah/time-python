@@ -1,0 +1,50 @@
+import time
+
+time_in_seconds = time.time()
+
+time_struct = time.localtime(time_in_seconds)
+
+time_strft_hour = time.strftime("%X", time_struct)
+time_strft_day = time.strftime("%a the %eth", time_struct)
+time_strft_month = time.strftime("%b/%m", time_struct)
+time_strft_year = time.strftime("%Y", time_struct)
+time_strft_all = time.strftime("%c", time_struct)
+
+def help():
+    print("\nAvailable commands:")
+    print("- hour  → current hour")
+    print("- day   → current day (e.g. Mon the 29th)")
+    print("- month → current month")
+    print("- year  → current year")
+    print("- all   → full time/date info")
+    print("- help  → show this help")
+    print("- exit  → exit the program\n")
+    
+def get_time_info():
+  while True:
+    userInput = input("Enter info about time (write help for help): ").strip().lower()
+    if userInput == "day":
+        time_now = time_strft_day
+        print(time_now)
+    elif userInput == "month":
+        time_now = time_strft_month
+        print(time_now)
+    elif userInput == "year":
+        time_now = time_strft_year
+        print(time_now)
+    elif userInput == "hour":
+        time_now = time_strft_hour
+        print(time_now)
+    elif userInput == "all":
+        time_now = time_strft_all
+        print(time_now)
+    elif userInput == "help":
+        help()
+    elif userInput == "exit":
+        print("Bye Bye")
+        break
+    else:
+        print("Error occured please try again!")
+        
+
+get_time_info()
